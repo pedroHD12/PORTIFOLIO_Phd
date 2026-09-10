@@ -1,0 +1,19 @@
+# Dependências
+node_modules/
+npm-debug.log
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build
+dist/
+build/
+.cache/

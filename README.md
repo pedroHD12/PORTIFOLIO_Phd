@@ -1,50 +1,60 @@
-# PORTIFOLIO_Phd
-# 💻 Portfólio - Pedro Henrique Dumke
+# Portfólio - Pedro Henrique Dumke
 
-Este é o meu portfólio pessoal, desenvolvido para apresentar meus projetos, habilidades e evolução na área de tecnologia.
+Portfólio responsivo e moderno de Pedro Henrique Dumke, estudante de Análise e Desenvolvimento de Sistemas.
 
-Atualmente curso **Análise e Desenvolvimento de Sistemas no Biopark** e estou buscando desenvolver cada vez mais meus conhecimentos em desenvolvimento de software.
+## 🎨 Características
 
-## 🚀 Tecnologias utilizadas
+- **Design Moderno**: Layout limpo e profissional com tema escuro
+- **Responsivo**: Totalmente adaptado para mobile, tablet e desktop
+- **Acessível**: Implementação de boas práticas de acessibilidade web
+- **Performance**: Código otimizado e estrutura eficiente
+- **Animações**: Transições suaves e agradáveis
 
-* HTML5
-* CSS3
-* JavaScript
-* Git
-* GitHub
+## 🛠️ Tecnologias
 
-Também estou estudando e trabalhando com tecnologias como:
+- HTML5 semântico
+- CSS3 moderno com custom properties
+- JavaScript ES6 modular
+- Font Awesome icons
+- Google Fonts
 
-* Java
-* C
-* Supabase
-* Banco de Dados
+## 📋 Seções
 
-## 📂 Sobre o portfólio
+1. **Hero** - Apresentação pessoal e chamada para ação
+2. **Sobre** - Informações profissionais e pessoais
+3. **Experiência** - Timeline de experiências profissionais
+4. **Projetos** - Destaques dos principais projetos
+5. **Habilidades** - Stack técnico
+6. **Contato** - Links de contato e redes sociais
 
-Neste site você encontrará alguns dos projetos que desenvolvi durante meus estudos e também projetos pessoais, incluindo:
+## 🚀 Como usar
 
-* Sites responsivos
-* Sistemas de gerenciamento
-* Integrações com WhatsApp
-* Sistemas de cadastro e gerenciamento de produtos
-* Projetos acadêmicos
-* Experimentos e estudos de programação
+1. Clone ou faça fork do repositório
+2. Abra o arquivo `index.html` no seu navegador
+3. Para desenvolver, recomenda-se usar um servidor local
 
-Meu objetivo é utilizar cada projeto como uma oportunidade para aprender novas tecnologias e melhorar minhas habilidades como desenvolvedor.
+## 📱 Breakpoints de Responsividade
 
-## 🌐 Acesse
+- Desktop: 1180px (máximo)
+- Tablet: até 900px
+- Mobile pequeno: até 720px
+- Mobile mínimo: até 640px
 
-O portfólio pode ser acessado através do link publicado neste repositório.
+## 🧪 Testes
 
-## 📫 Contato
+Para rodar os testes de navegação:
 
-**LinkedIn:**
-https://www.linkedin.com/in/pedro-dumke-645404417
+```bash
+npm test
+```
 
-**GitHub:**
-https://github.com/pedroHD12
+## 📧 Contato
 
----
+- Email: pedrodumke12@gmail.com
+- WhatsApp: +55 45 99171-6012
+- GitHub: [pedroHD12](https://github.com/pedroHD12)
+- LinkedIn: [Pedro Dumke](https://www.linkedin.com/in/pedro-dumke-645404417)
 
-Desenvolvido por **Pedro Henrique Dumke**.
+## 📄 Licença
+
+Este projeto é pessoal e pode ser usado como referência, mas não deve ser copiado sem permissão.

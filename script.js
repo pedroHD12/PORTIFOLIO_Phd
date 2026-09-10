@@ -1,68 +1,34 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const revealElements = document.querySelectorAll('.reveal');
-    const mobileToggle = document.getElementById('mobile-toggle');
-    const navLinks = document.getElementById('nav-links');
-    const copyBtn = document.getElementById('copy-btn');
-    const emailInput = document.getElementById('email-input');
-    const glowCards = document.querySelectorAll('.glow-card');
+export function createNavigationController({ menu, button, documentRef = document }) {
+  const isOpen = () => menu.getAttribute('data-open') === 'true';
 
-    if ('IntersectionObserver' in window) {
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.15 });
+  const setOpen = (open) => {
+    menu.setAttribute('data-open', String(open));
+    button.setAttribute('aria-expanded', String(open));
+    button.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+  };
 
-        revealElements.forEach((element) => revealObserver.observe(element));
-    } else {
-        revealElements.forEach((element) => element.classList.add('active'));
+  const close = () => setOpen(false);
+  const toggle = () => setOpen(!isOpen());
+
+  button.addEventListener('click', toggle);
+  menu.addEventListener('click', (event) => {
+    if (event.target.closest('a')) close();
+  });
+  documentRef.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && isOpen()) {
+      close();
+      button.focus();
     }
+  });
+  documentRef.addEventListener('click', (event) => {
+    if (isOpen() && !menu.contains(event.target) && !button.contains(event.target)) close();
+  });
 
-    if (mobileToggle && navLinks) {
-        mobileToggle.addEventListener('click', () => {
-            const isOpen = navLinks.classList.toggle('active');
-            mobileToggle.setAttribute('aria-expanded', String(isOpen));
-            mobileToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
-        });
+  return { close, toggle };
+}
 
-        document.querySelectorAll('.nav-item').forEach((link) => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                mobileToggle.setAttribute('aria-expanded', 'false');
-                mobileToggle.setAttribute('aria-label', 'Abrir menu');
-            });
-        });
-    }
-
-    if (copyBtn && emailInput) {
-        copyBtn.addEventListener('click', async () => {
-            try {
-                await navigator.clipboard.writeText(emailInput.value);
-                const originalContent = copyBtn.innerHTML;
-                copyBtn.innerHTML = '<i class="fa-solid fa-check" aria-hidden="true"></i>Copiado!';
-                copyBtn.style.backgroundColor = '#22c55e';
-                copyBtn.style.color = '#ffffff';
-
-                window.setTimeout(() => {
-                    copyBtn.innerHTML = originalContent;
-                    copyBtn.style.backgroundColor = '';
-                    copyBtn.style.color = '';
-                }, 2000);
-            } catch (error) {
-                emailInput.select();
-                document.execCommand('copy');
-            }
-        });
-    }
-
-    glowCards.forEach((card) => {
-        card.addEventListener('mousemove', (event) => {
-            const rect = card.getBoundingClientRect();
-            card.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`);
-            card.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`);
-        });
-    });
-});
+if (typeof document !== 'undefined') {
+  const menu = document.getElementById('site-navigation');
+  const button = document.getElementById('menu-toggle');
+  if (menu && button) createNavigationController({ menu, button });
+}

@@ -1,0 +1,8 @@
+{
+  "name": "portfolio-pedro-dumke",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
